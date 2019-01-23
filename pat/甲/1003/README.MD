@@ -3,6 +3,8 @@
 
 debug了n久才发现这个问题
 
+题目地址：https://pintia.cn/problem-sets/994805342720868352/problems/994805523835109376
+
 ## 1003dfs.cpp
 这个是解决该问题的深度优先搜索版本
 
