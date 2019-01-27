@@ -15,8 +15,11 @@ Note: It is guaranteed that the records are consistent. That is, the sign in tim
 
 ## Sample Input:
 >3
+
 >CS301111 15:30:28 17:00:10
+
 >SC3021234 08:00:00 11:25:25
+
 >CS301133 21:45:00 21:58:40
 ## Sample Output:
 >SC3021234 CS301133
