@@ -16,6 +16,7 @@ For each test case, output in one line the largest sum, together with the first 
 ## Sample Output:
 >10 1 4
 
+URL:https://pintia.cn/problem-sets/994805342720868352/problems/994805514284679168
 # 心得
 ## 1、容易被忽略的输出顺序
 一开始我是没有拿到满分的，因为我忘记了当存在多个相同的最小值的时候，应该输出使i和j最小的那个。同时，当整个序列全部都为负数
