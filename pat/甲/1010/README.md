@@ -33,8 +33,7 @@ For each test case, print in one line the radix of the other number so that the 
 # 心得
 比起之前的题目，这一题是比较难的
 
-1、数据类型的选择。由于考虑到表示的数可能会很大，比如表示36进制的zzzzzzzzzz，因此选用了unsigned long long作为
-部分整形数字的类型。
+1、数据类型的选择。由于考虑到表示的数可能会很大，比如表示36进制的zzzzzzzzzz，因此选用了unsigned long long作为部分整形数字的类型。
 
 2、边界。最开始我以为进制的上界是36，因为最大可以表示的是z，z是35，那么最大进制就是36。但后来发现错了，之后就尝试不设上限，让算法一直往上遍历。这时测试点7就会超时。后来参考了别人的博客，才发现原来是有上界的，上界就是已知进制的数的值+1。
 
