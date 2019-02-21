@@ -5,7 +5,7 @@ The Public Bike Management Center (PBMC) keeps monitoring the real-time capacity
 
 When a problem station is reported, PBMC will always choose the shortest path to reach that station. If there are more than one shortest path, the one that requires the least number of bikes sent from PBMC will be chosen.
 
-![avatar](/city.png)
+![avatar](https://images.ptausercontent.com/213)
 
 The above figure illustrates an example. The stations are represented by vertices and the roads correspond to the edges. The number on an edge is the time taken to reach one end station from another. The number written inside a vertex S is the current number of bikes stored at S. Given that the maximum capacity of each station is 10. To solve the problem at S​<sub>3</sub> , we have 2 different shortest paths:
 
