@@ -59,5 +59,6 @@ For each test case, first print the arriving time, serving time and the waiting 
 1. 我的模拟有点小问题，到现在还没找到。测试点4错了。模拟题一复杂起来还是有点难= =
 2. 不要用STL自带的deque，很慢很慢...他采用动态内存分配。
 3. 可以不用链表，就尽量不用链表，因为链表生成新节点也很慢...
-4. 1026CSDN.cpp是正确答案。
+4. 1026CSDN.cpp是另一种正确答案。
 5. 可以用vector尽量用vector。可以考虑在vector的基础上构造Queue数据结构。
+6. 加上了一个对play的时间的限制，如果大于两小时，就拉回到两小时，结果成功了...难道说assume在这里的意思是保证？有点坑= =不过总算是过了。
