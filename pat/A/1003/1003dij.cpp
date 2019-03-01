@@ -5,20 +5,20 @@
 #define N 500
 using namespace std;
 
-int n,m,src,desc;//³ÇÊĞÊı Â·¾¶Êı Ô´µã ÖÕµã 
-int path_num[N];//Ô´µãµ½Ä³¸öµãµÄÂ·¾¶Êı 
-int shortest_dist[N];//Ô´µãµ½Ä³¸öµãµÄ×î¶Ì¾àÀë 
-int dist[N][N];//¾àÀë
-int team_num[N];//³ÇÊĞµÄÍÅ¶ÓÊıÁ¿
-int max_team_num[N];//Ô´µãµ½Ä³¸ö³ÇÊĞ 
-bool visited[N];//ÊÇ·ñÒÑÖª×î¶ÌÂ·¾¶
+int n,m,src,desc;//åŸå¸‚æ•° è·¯å¾„æ•° æºç‚¹ ç»ˆç‚¹ 
+int path_num[N];//æºç‚¹åˆ°æŸä¸ªç‚¹çš„è·¯å¾„æ•° 
+int shortest_dist[N];//æºç‚¹åˆ°æŸä¸ªç‚¹çš„æœ€çŸ­è·ç¦» 
+int dist[N][N];//è·ç¦»
+int team_num[N];//åŸå¸‚çš„å›¢é˜Ÿæ•°é‡
+int max_team_num[N];//æºç‚¹åˆ°æŸä¸ªåŸå¸‚ 
+bool visited[N];//æ˜¯å¦å·²çŸ¥æœ€çŸ­è·¯å¾„
 
 void dij(){
 	int i,j;
 	int min,minj;
 	
 	for(i=1;i<n;i++){
-		//Ñ°ÕÒÀëÔ´µãÂ·¾¶×î¶ÌµÄÇÒÎ´ÔÚS¼¯ºÏÖĞµÄ½Úµã 
+		//å¯»æ‰¾ç¦»æºç‚¹è·¯å¾„æœ€çŸ­çš„ä¸”æœªåœ¨Sé›†åˆä¸­çš„èŠ‚ç‚¹ 
 		minj=-1;
 		min=INF;
 		for(j=0;j<n;j++){
@@ -29,38 +29,24 @@ void dij(){
 				}
 			}
 		}
-		//cout<<"shortest:"<<minj<<' '<<min<<endl;
-		if(min==INF&&minj==-1) break;//ÒÑÎŞ¿Éµ½´ïµÄ½Úµã£¬ÍË³öËã·¨
+		if(min==INF&&minj==-1) break;//å·²æ— å¯åˆ°è¾¾çš„èŠ‚ç‚¹ï¼Œé€€å‡ºç®—æ³•
 		visited[minj]=true;
-		//¸üĞÂ×î¶ÌÂ·¾¶±í
+		//æ›´æ–°æœ€çŸ­è·¯å¾„è¡¨
 		for(j=0;j<n;j++){
 			if(!visited[j]){
 				
 				if(dist[minj][j]==INF) continue;
-				//cout<<"j:"<<j<<' ';
 				if(dist[minj][j]+shortest_dist[minj]<shortest_dist[j]){
-					//cout<<"brench 1"<<endl;
-					//cout<<"brench 2"<<endl;
-					//cout<<max_team_num[minj]<<endl;
-					//cout<<team_num[j]<<endl;
-					//cout<<max_team_num[j]<<endl;
-					//cout<<path_num[j]<<endl;
-					//¾­¹ıminjÔÙµ½jÎª×î¶ÌÂ·¾¶
+					//ç»è¿‡minjå†åˆ°jä¸ºæœ€çŸ­è·¯å¾„
 					shortest_dist[j]=dist[minj][j]+shortest_dist[minj];
 					max_team_num[j]=max_team_num[minj]+team_num[j];
 					path_num[j]=path_num[minj];
 				}else if(dist[minj][j]+shortest_dist[minj]==shortest_dist[j]){
-					//cout<<"brench 2"<<endl;
-					//cout<<max_team_num[minj]<<endl;
-					//cout<<team_num[j]<<endl;
-					//cout<<max_team_num[j]<<endl;
-					//cout<<path_num[j]<<endl;
 					if(max_team_num[minj]+team_num[j]>max_team_num[j]){
 						max_team_num[j]=max_team_num[minj]+team_num[j];
 					}
 					path_num[j]+=path_num[minj];
-				}//else cout<<"no breanch"<<endl;
-				
+				}
 			}
 		} 
 	}
@@ -104,4 +90,3 @@ int main(){
 	
 	return 0;
 } 
-

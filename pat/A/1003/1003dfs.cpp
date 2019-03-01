@@ -32,7 +32,7 @@ class Node{
 			next=NULL;
 		}
 		~Node(){
-			//É¾³ıÊ±£¬ÏÈÉ¾³ıºóÃæµÄ 
+			//åˆ é™¤æ—¶ï¼Œå…ˆåˆ é™¤åé¢çš„ 
 			if(next) delete next;
 		}
 };
@@ -65,12 +65,12 @@ void search(int cityno,int acc_len,int acc_team){
 	
 	if(cityno==desc){
 		if(acc_len<min_len){
-			//µ±Ç°Â·¾¶±ÈÒÑÖª×î¶ÌÂ·¾¶¶Ì
+			//å½“å‰è·¯å¾„æ¯”å·²çŸ¥æœ€çŸ­è·¯å¾„çŸ­
 			min_len=acc_len;
 			min_len_count=1;
 			max_team=acc_team; 
 		}else if(acc_len==min_len){
-			//µ±Ç°Â·¾¶ÓëÒÑÖª×î¶ÌÂ·¾¶³¤¶ÈÏàµÈ
+			//å½“å‰è·¯å¾„ä¸å·²çŸ¥æœ€çŸ­è·¯å¾„é•¿åº¦ç›¸ç­‰
 			min_len_count+=1;
 			if(acc_team>max_team) max_team=acc_team;
 		}
@@ -90,9 +90,6 @@ void search(int cityno,int acc_len,int acc_team){
 }
 
 int main(){
-	/*clock_t start,end;
-	start=clock();*/
-	
 	int i,j,k,len;
 	
 	memset(used,0,MAX_N);
@@ -117,8 +114,5 @@ int main(){
 	used[src]=0;
 	
 	cout<<min_len_count<<' '<<max_team<<endl;
-	/*
-	end=clock();
-	cout<<"use time "<<(double)(end-start)/CLOCKS_PER_SEC<<" seconds."<<endl;*/
 	return 0;
 }
