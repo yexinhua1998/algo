@@ -70,10 +70,8 @@ int main(){
 
     //input
     cin>>k1;
-    //cout<<"k1:"<<k1<<endl;
     for(i=0;i<k1;i++){
         cin>>e>>a;
-        //cout<<"e="<<e<<" a="<<a<<endl;
         poly1.append(e,a);
     }
     cin>>k2;
