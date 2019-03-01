@@ -25,6 +25,7 @@ unsigned long long getnum(string strnum,unsigned long long radix){
     char digit;
     unsigned long long sum=0,x=1;
     int i,num;
+    
     for(i=strnum.size()-1;i>=0;i--){
         digit=strnum[i];
         num=char2num(digit);
@@ -46,24 +47,12 @@ int main(){
     tag--;
     other=!tag;
     x=getnum(data[tag],radix);
-    /*
-    for(i=maxdigit(data[other])+1;;i++){
-        if(i<2) i=2;
-        y=getnum(data[other],i);
-        if(y>x) break;
-        else if(x==y){
-            result=i;
-            break;
-        }
-    }*/
     left=maxdigit(data[other])+1;
     right=x+1;
     if(left>right) swap(left,right);
-    //cout<<"x="<<x<<"left="<<left<<"right="<<right<<endl;
     while(left<=right){
         mid=(left+right)/2;
         y=getnum(data[other],mid);
-        //cout<<"right="<<right<<";left="<<left<<";mid="<<mid<<"y="<<y<<endl;
         if(x>y){
             left=mid+1;
         }else if(x<y){
