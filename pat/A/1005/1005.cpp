@@ -15,11 +15,7 @@ int main(){
 	
 	cin>>data;
 	for(i=0;data[i]!='\0';i++) sum+=data[i]-'0';
-	if(sum==0){
-		cout<<"zero"<<endl;
-		return 0;
-	}
-	while(sum!=0){
+	do{
 		temp=sum%10;
 		switch(temp){
 			case 0:strcpy(outputs[top++],"zero");break;
@@ -34,7 +30,7 @@ int main(){
 			case 9:strcpy(outputs[top++],"nine");break;
 		}
 		sum=sum/10;
-	}
+	}while(sum!=0);
 	for(i=top-1;i>=0;i--){
 		cout<<outputs[i];
 		if(i==0) cout<<'\n';
