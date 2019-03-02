@@ -76,7 +76,7 @@ Time quit_time[K];
 Time start_time[K];
 
 bool can_in(){
-	//åˆ¤æ–­æ˜¯å¦èƒ½è¿›å…¥æ’é˜Ÿ
+	//ÅĞ¶ÏÊÇ·ñÄÜ½øÈëÅÅ¶Ó
 	int i;
 	for(i=0;i<n;i++){
 		if(server[i].size()<m) return true;
@@ -85,7 +85,7 @@ bool can_in(){
 }
 
 int find_shortest(){
-	//å¯»æ‰¾æœ€çŸ­çš„ç¬¬ä¸€ä¸ªé˜Ÿåˆ—
+	//Ñ°ÕÒ×î¶ÌµÄµÚÒ»¸ö¶ÓÁĞ
 	int i,j=-1;
 	int min=INF;
 	for(i=0;i<n;i++){
@@ -98,7 +98,7 @@ int find_shortest(){
 }
 
 int get_min_time(){
-	//è®¡ç®—æœ€å¿«å¯ä»¥ç¦»å¼€é˜Ÿä¼çš„ä¸šåŠ¡æ‰€éœ€æ—¶é—´
+	//¼ÆËã×î¿ì¿ÉÒÔÀë¿ª¶ÓÎéµÄÒµÎñËùĞèÊ±¼ä
 	int min=INF,processing,i;
 	for(i=0;i<n;i++){
 		if(server[i].empty()) continue;
@@ -109,7 +109,7 @@ int get_min_time(){
 }
 
 void let_time_goes(int time){
-	//è®©æ‰€æœ‰æ­£åœ¨åŠç†ä¸šåŠ¡çš„äººçš„æ—¶é—´å‡å°‘
+	//ÈÃËùÓĞÕıÔÚ°ìÀíÒµÎñµÄÈËµÄÊ±¼ä¼õÉÙ
 	int i,processing;
 	for(i=0;i<n;i++){
 		if(server[i].empty()) continue;
@@ -119,7 +119,7 @@ void let_time_goes(int time){
 }
 
 int quit_one(){
-	//è®©ç¬¬ä¸€ä¸ªprocess_time=0çš„äººé€€å‡º
+	//ÈÃµÚÒ»¸öprocess_time=0µÄÈËÍË³ö
 	int i,processing;
 	for(i=0;i<n;i++){
 		if(server[i].empty()) continue;
@@ -138,12 +138,10 @@ void init_start_time(){
 
 void update_start_time(Time now){
 	int i,processing;
-	//printf("update:");
-	//now.show();
+	
 	for(i=0;i<n;i++){
 		if(server[i].empty()) continue;
 		processing=server[i].head();
-		//printf("processing:%d start_time[processing]=%d\n",processing,start_time[processing].hour);
 		if(start_time[processing].hour==-1) start_time[processing]=now;
 	}
 }
@@ -152,7 +150,7 @@ int main(){
 	int min,minj;
 	Time now(8,0),temp;
 	int i,j;
-	int x;//è®°å½•è½®åˆ°çš„é¡¾å®¢ 
+	int x;//¼ÇÂ¼ÂÖµ½µÄ¹Ë¿Í 
 	int processing;
 	bool can_served;
 	
@@ -165,21 +163,17 @@ int main(){
 	x=0;
 	init_start_time();
 	for(i=0;i<2*k;i++){
-		//printf("i=%d ",i);
 		if(can_in()&&x<k){
-			//é˜Ÿåˆ—æœªæ»¡ä¸”è¿˜æœ‰å‰©ä½™é¡¾å®¢ï¼Œé€‰æ‹©æœ€çŸ­çš„æ’å…¥
+			//¶ÓÁĞÎ´ÂúÇÒ»¹ÓĞÊ£Óà¹Ë¿Í£¬Ñ¡Ôñ×î¶ÌµÄ²åÈë
 			minj=find_shortest();
 			if(minj==-1) exit(2);
-			//printf("push minj=%d x=%d\n",minj,x);
 			server[minj].push(x++);
 		}else{
-			//é˜Ÿåˆ—å·²æ»¡æˆ–å·²ç»æ²¡æœ‰å‰©ä½™é¡¾å®¢ï¼Œä»¤æœåŠ¡æ—¶é—´æœ€çŸ­çš„å®¢äººå‡ºé˜Ÿ
-			//printf("pop\n");
+			//¶ÓÁĞÒÑÂú»òÒÑ¾­Ã»ÓĞÊ£Óà¹Ë¿Í£¬Áî·şÎñÊ±¼ä×î¶ÌµÄ¿ÍÈË³ö¶Ó
 			update_start_time(now);
 			min=get_min_time();
 			if(min==INF) exit(3);
-			now=now+Time(0,min);//æ¨¡æ‹Ÿè¿‡å»äº†minåˆ†é’Ÿ 
-			//printf("min=%d ",min);
+			now=now+Time(0,min);//Ä£Äâ¹ıÈ¥ÁËmin·ÖÖÓ 
 			let_time_goes(min);
 			processing=quit_one();
 			quit_time[processing]=now;
@@ -187,10 +181,8 @@ int main(){
 	}
 	
 	//output
-	//printf("q=%d\n",q);
 	for(i=0;i<q;i++){
 		temp=start_time[query[i]-1];
-		//printf("temp:");temp.show();
 		if(temp.hour>=17){
 			printf("Sorry\n");
 		}else{
@@ -198,6 +190,6 @@ int main(){
 		}
 	}
 	
-	//è®°å½•start_timeï¼Œå¹¶ä¾æ®start_timeæ¥åˆ¤å®šæ˜¯å¦åº”è¯¥è¾“å‡ºSorry 
+	//¼ÇÂ¼start_time£¬²¢ÒÀ¾İstart_timeÀ´ÅĞ¶¨ÊÇ·ñÓ¦¸ÃÊä³öSorry 
 	return 0;
 }
