@@ -5,6 +5,7 @@ int n;
 int main(){
 	int floor_on=0,floor_to=0,cost=0;
 	int i;
+	
 	cin>>n;
 	for(i=0;i<n;i++){
 		cin>>floor_to;

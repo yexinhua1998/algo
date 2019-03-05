@@ -55,11 +55,9 @@ int main(){
         linked_num=0;
         memset(used,0,n);
         x=check[i]-1;
-        //printf("x=%d\n",x);
         used[x]=true;
         for(j=0;j<n;j++){
             if(!used[j]){
-                //printf("j=%d\n",j);
                 dfs(j);
                 linked_num++;
             }

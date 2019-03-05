@@ -97,14 +97,12 @@ int main(){
     memset(hash_table,0,sizeof(hash_table));
 
     cin>>n>>m;
-    //cout<<"n="<<n<<";m="<<m<<endl;
     slist=new Student[n];
     qlist=new string[m];
     scolist=new Score[n];
 
     for(i=0;i<n;i++){
         cin>>id>>cpro>>math>>eng;
-        //cout<<"id="<<id<<" cpro="<<cpro<<" math="<<math<<" eng="<<eng<<endl;
         slist[i].set(id,cpro,math,eng);
         hash_value=_hash(id);
         hash_table[hash_value]=slist+i;
@@ -112,9 +110,7 @@ int main(){
 
     for(i=0;i<m;i++){
         cin>>qlist[i];
-        //cout<<"get the query "<<i+1<<":"<<qlist[i]<<endl;
     }
-    //cout<<"input done"<<endl;
 
     for(i=0;i<n;i++) scolist[i]=slist[i].getScore('C');
     sort(scolist,scolist+n,compare);
